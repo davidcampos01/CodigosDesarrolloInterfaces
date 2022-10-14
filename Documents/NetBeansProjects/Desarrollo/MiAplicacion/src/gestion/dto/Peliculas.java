@@ -66,7 +66,7 @@ public class Peliculas {
         s[2] = sdf.format(fechaEstreno);
         s[3] = genero;
         return s;
-                //sss
+                //sssdd
     }
     
 }
