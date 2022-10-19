@@ -25,7 +25,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     private void refrescarTabla(){
         DefaultTableModel dtm = new DefaultTableModel();
-        dtm.setColumnIdentifiers(new String[]{"Nombre", "Director", "Fecha Estreno", "Genero"});
+        dtm.setColumnIdentifiers(new String[]{"Nombre Pelicula", "Director", "Fecha Estreno", "Genero", "Valoración"});
         
         List<Peliculas> listaPeliculas = LogicaNegocio.getListaPeliculas();
         for (Peliculas pelicula : listaPeliculas){
@@ -47,9 +47,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableClientes = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBarCabecera = new javax.swing.JMenuBar();
         jMenuClientes = new javax.swing.JMenu();
         jMenuItemAlta = new javax.swing.JMenuItem();
+        jMenuCartelera = new javax.swing.JMenu();
+        jMenuItemCartelera = new javax.swing.JMenuItem();
+        jMenuIniciarSesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,7 +71,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jMenuClientes.setText("Peliculas");
 
-        jMenuItemAlta.setText("Alta ...");
+        jMenuItemAlta.setText("Valoración");
         jMenuItemAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAltaActionPerformed(evt);
@@ -76,9 +79,24 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jMenuClientes.add(jMenuItemAlta);
 
-        jMenuBar1.add(jMenuClientes);
+        jMenuBarCabecera.add(jMenuClientes);
 
-        setJMenuBar(jMenuBar1);
+        jMenuCartelera.setText("Cartelera");
+
+        jMenuItemCartelera.setText("Cartelera");
+        jMenuItemCartelera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCarteleraActionPerformed(evt);
+            }
+        });
+        jMenuCartelera.add(jMenuItemCartelera);
+
+        jMenuBarCabecera.add(jMenuCartelera);
+
+        jMenuIniciarSesion.setText("Iniciar Sesión");
+        jMenuBarCabecera.add(jMenuIniciarSesion);
+
+        setJMenuBar(jMenuBarCabecera);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,9 +109,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -101,11 +119,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAltaActionPerformed
-        DarAlta dialogoAlta = new DarAlta(this, true);
+        DarValoracion dialogoAlta = new DarValoracion(this, true);
         dialogoAlta.setVisible(true);
         refrescarTabla();
     }//GEN-LAST:event_jMenuItemAltaActionPerformed
 
+    private void jMenuItemCarteleraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCarteleraActionPerformed
+        Cartelera dialogoCartelera = new Cartelera(this, true);
+        dialogoCartelera.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCarteleraActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -143,9 +167,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBarCabecera;
+    private javax.swing.JMenu jMenuCartelera;
     private javax.swing.JMenu jMenuClientes;
+    private javax.swing.JMenu jMenuIniciarSesion;
     private javax.swing.JMenuItem jMenuItemAlta;
+    private javax.swing.JMenuItem jMenuItemCartelera;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableClientes;
     // End of variables declaration//GEN-END:variables

@@ -35,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="jPanelDatos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="147" max="32767" attributes="0"/>
+              <EmptySpace pref="126" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,11 +68,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabelFechaAlta" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelProvincia" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelValoracion" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jComboBoxProvincia" max="32767" attributes="0"/>
                               <Component id="jSpinnerFechaEstreno" max="32767" attributes="0"/>
+                              <Component id="jComboBoxProvincia" max="32767" attributes="0"/>
+                              <Component id="jComboBoxValoracion" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -103,7 +105,12 @@
                       <Component id="jLabelProvincia" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxProvincia" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelValoracion" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxValoracion" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
                   <Component id="jButtonAlta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -118,12 +125,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelApellidos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Director:"/>
+            <Property name="text" type="java.lang.String" value="Usuario:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelFechaAlta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha de estreno:"/>
+            <Property name="text" type="java.lang.String" value="Fecha:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelProvincia">
@@ -178,6 +185,28 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jSpinnerFechaEstreno.setModel(new javax.swing.SpinnerDateModel());"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelValoracion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Valoraci&#xf3;n:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxValoracion">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="6">
+                <StringItem index="0" value="0"/>
+                <StringItem index="1" value="*"/>
+                <StringItem index="2" value="**"/>
+                <StringItem index="3" value="***"/>
+                <StringItem index="4" value="****"/>
+                <StringItem index="5" value="*****"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
       </SubComponents>

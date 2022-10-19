@@ -14,16 +14,22 @@ import java.util.Vector;
  */
 public class Peliculas {
 
+    public static void add(Peliculas pelicula) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     private String nombrePelicula;
-    private String director;
-    private Date fechaEstreno;
+    private String usuario;
+    private Date fechaPelicula;
     private String genero;
+    private String valoracion;
     private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-    public Peliculas (String nombrePelicula, String director, Date fechaEstreno, String genero) {
+    public Peliculas (String nombrePelicula, String usuario, Date fechaPelicula, String genero, String valoracion) {
         this.nombrePelicula = nombrePelicula;
-        this.director = director;
-        this.fechaEstreno = fechaEstreno;
+        this.usuario = usuario;
+        this.fechaPelicula = fechaPelicula;
+        this.valoracion = valoracion;
         this.genero = genero;
     }
 
@@ -35,20 +41,20 @@ public class Peliculas {
         this.nombrePelicula = nombrePelicula;
     }
 
-    public String getDirector() {
-        return director;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public Date getFechaEstreno() {
-        return fechaEstreno;
+    public Date getFechaPelicula() {
+        return fechaPelicula;
     }
 
-    public void setFechaEstreno(Date fechaEstreno) {
-        this.fechaEstreno = fechaEstreno;
+    public void setFechaPelicula(Date fechaPelicula) {
+        this.fechaPelicula = fechaPelicula;
     }
 
     public String getGenero() {
@@ -58,15 +64,25 @@ public class Peliculas {
     public void setGenero(String genero) {
         this.genero = genero;
     }
+
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
+    }
+    
     
     public String[] toArrayString(){
-        String[] s = new String[4];
+        String[] s = new String[5];
         s[0] = nombrePelicula;
-        s[1] = director;
-        s[2] = sdf.format(fechaEstreno);
+        s[1] = usuario;
+        s[2] = sdf.format(fechaPelicula);
         s[3] = genero;
+        s[4] = valoracion;
         return s;
-                //sssdd
+                
     }
     
 }

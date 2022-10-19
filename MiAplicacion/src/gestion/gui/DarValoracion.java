@@ -12,14 +12,14 @@ import java.util.Date;
  *
  * @author David Campos
  */
-public class DarAlta extends javax.swing.JDialog {
+public class DarValoracion extends javax.swing.JDialog {
     
     private PantallaPrincipal pantallaPrincipal;
     
     /**
      * Creates new form DialogoAlta
      */
-    public DarAlta(java.awt.Frame parent, boolean modal) {
+    public DarValoracion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         //pantallaPrincipal = (PantallaPrincipal)parent;
         initComponents();
@@ -45,14 +45,16 @@ public class DarAlta extends javax.swing.JDialog {
         jComboBoxProvincia = new javax.swing.JComboBox<>();
         jButtonAlta = new javax.swing.JButton();
         jSpinnerFechaEstreno = new javax.swing.JSpinner();
+        jLabelValoracion = new javax.swing.JLabel();
+        jComboBoxValoracion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabelNombre.setText("Nombre de la Pelicula:");
 
-        jLabelApellidos.setText("Director:");
+        jLabelApellidos.setText("Usuario:");
 
-        jLabelFechaAlta.setText("Fecha de estreno:");
+        jLabelFechaAlta.setText("Fecha:");
 
         jLabelProvincia.setText("Genero:");
 
@@ -72,6 +74,10 @@ public class DarAlta extends javax.swing.JDialog {
 
         jSpinnerFechaEstreno.setModel(new javax.swing.SpinnerDateModel());
         jSpinnerFechaEstreno.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1665648176845L), null, null, java.util.Calendar.DAY_OF_WEEK_IN_MONTH));
+
+        jLabelValoracion.setText("Valoración:");
+
+        jComboBoxValoracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "*", "**", "***", "****", "*****" }));
 
         javax.swing.GroupLayout jPanelDatosLayout = new javax.swing.GroupLayout(jPanelDatos);
         jPanelDatos.setLayout(jPanelDatosLayout);
@@ -94,11 +100,13 @@ public class DarAlta extends javax.swing.JDialog {
                     .addGroup(jPanelDatosLayout.createSequentialGroup()
                         .addGroup(jPanelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelFechaAlta)
-                            .addComponent(jLabelProvincia))
-                        .addGap(53, 53, 53)
+                            .addComponent(jLabelProvincia)
+                            .addComponent(jLabelValoracion))
+                        .addGap(86, 86, 86)
                         .addGroup(jPanelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinnerFechaEstreno)
                             .addComponent(jComboBoxProvincia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSpinnerFechaEstreno))))
+                            .addComponent(jComboBoxValoracion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanelDatosLayout.setVerticalGroup(
@@ -120,7 +128,11 @@ public class DarAlta extends javax.swing.JDialog {
                 .addGroup(jPanelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelProvincia)
                     .addComponent(jComboBoxProvincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelValoracion)
+                    .addComponent(jComboBoxValoracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jButtonAlta)
                 .addContainerGap())
         );
@@ -139,7 +151,7 @@ public class DarAlta extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanelDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,7 +162,8 @@ public class DarAlta extends javax.swing.JDialog {
         String director = jTextFieldApellidos.getText();
         Date fechaEstreno = (Date)jSpinnerFechaEstreno.getValue();
         String genero = (String)jComboBoxProvincia.getSelectedItem();
-        Peliculas pelicula = new Peliculas(nombrePeliculas,director,fechaEstreno,genero);
+        String valoracion = (String) jComboBoxValoracion.getSelectedItem();
+        Peliculas pelicula = new Peliculas(nombrePeliculas,director,fechaEstreno,genero,valoracion);
         LogicaNegocio.aniadirPelicula(pelicula);
         dispose();
     }//GEN-LAST:event_jButtonAltaActionPerformed
@@ -167,10 +180,12 @@ public class DarAlta extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAlta;
     private javax.swing.JComboBox<String> jComboBoxProvincia;
+    private javax.swing.JComboBox<String> jComboBoxValoracion;
     private javax.swing.JLabel jLabelApellidos;
     private javax.swing.JLabel jLabelFechaAlta;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelProvincia;
+    private javax.swing.JLabel jLabelValoracion;
     private javax.swing.JPanel jPanelDatos;
     private javax.swing.JSpinner jSpinnerFechaEstreno;
     private javax.swing.JTextField jTextFieldApellidos;
