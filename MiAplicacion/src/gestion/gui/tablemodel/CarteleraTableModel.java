@@ -15,7 +15,7 @@ import java.util.List;
 public class CarteleraTableModel extends AbstractTableModel {
 
     private List<Cartelera> listCartelera;
-    private String[]columnas
+    private String[]columnas = {"Nombre Pelicula", "Director", "Genero", "Duración", "Sala", "Edad"};
     
     public CarteleraTableModel(List<Cartelera> listCartelera){
             this.listCartelera = listCartelera;
@@ -28,12 +28,32 @@ public class CarteleraTableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-       return colum
+       return columnas.length;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-      
+      switch(columnIndex){
+          case 0:
+              return listCartelera.get(rowIndex).getNombrePelicula();
+          case 1:
+              return listCartelera.get(rowIndex).getDirector();
+          case 2:
+              return listCartelera.get(rowIndex).getGenero();
+          case 3:
+              return listCartelera.get(rowIndex).getDuracion();
+          case 4:
+              return listCartelera.get(rowIndex).getSala();
+          case 5:
+              return listCartelera.get(rowIndex).getEdad(); 
+      }
+        return null;
     }
+
+    @Override
+    public String getColumnName(int column) {
+        return columnas[column];
+    }
+    
     
 }

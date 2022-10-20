@@ -5,7 +5,7 @@
 package gestion.gui;
 
 import gestion.dto.Peliculas;
-import gestion.logica.LogicaNegocio;
+import gestion.logica.LogicaNegocioValoraciones;
 import java.util.Date;
 
 /**
@@ -164,7 +164,7 @@ public class DarValoracion extends javax.swing.JDialog {
         String genero = (String)jComboBoxProvincia.getSelectedItem();
         String valoracion = (String) jComboBoxValoracion.getSelectedItem();
         Peliculas pelicula = new Peliculas(nombrePeliculas,director,fechaEstreno,genero,valoracion);
-        LogicaNegocio.aniadirPelicula(pelicula);
+        LogicaNegocioValoraciones.aniadirPelicula(pelicula);
         dispose();
     }//GEN-LAST:event_jButtonAltaActionPerformed
 
